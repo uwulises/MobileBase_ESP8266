@@ -1,4 +1,8 @@
-# battlebots_ESP8266
+# Battlebots CD2201 University of Chile
+
+## Refs:
+- <https://esp8266-arduino-spanish.readthedocs.io/es/latest/esp8266wifi/soft-access-point-class.html>
+
 Test files and CAD models for Battlebots course 2023, ESP12-E develops
 
 These modules contains basic test modules for communicate a client with ESP board using onboard wifi
