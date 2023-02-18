@@ -47,6 +47,13 @@ void wificlient()
       Serial.println("forward");
     }
 
+    if (linea1.indexOf("STOP") > 0)
+    {
+
+      motor_stop();
+      Serial.println("stop");
+    }
+
     client.flush();
 
     Serial.println("Enviando respuesta...");
@@ -65,6 +72,7 @@ void wificlient()
     client.println("<br />");
     client.println("<button onClick=location.href='./?FW'>FW</button>");
     client.println("<button onClick=location.href='./?BW'>BW</button>");
+    client.println("<button onClick=location.href='./?STOP'>STOP</button>");
     client.println("<br />");
     client.println("</div>");
     client.println("</body>");
@@ -73,6 +81,11 @@ void wificlient()
     delay(1);
     Serial.println("respuesta enviada");
     Serial.println();
+  }
+  else
+  {
+    Serial.println("Ingrese desde un navegador web usando la siguiente IP: 192.168.4.1 ");
+    delay(200);
   }
 }
 #endif

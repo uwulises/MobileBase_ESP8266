@@ -39,4 +39,14 @@ void motor_forward()
     analogWrite(pwmB, 255);
 }
 
+void motor_stop()
+{
+    digitalWrite(in1A, LOW);
+    digitalWrite(in2A, LOW);
+    analogWrite(pwmA, 0);
+    digitalWrite(in1B, LOW);
+    digitalWrite(in2B, LOW);
+    analogWrite(pwmB, 0);
+}
+
 #endif
