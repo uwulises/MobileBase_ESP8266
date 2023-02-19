@@ -65,14 +65,35 @@ void wificlient()
     // Pagina html  para en el navegador
     client.println("<!DOCTYPE HTML>");
     client.println("<html>");
+    client.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
     client.println("<head><title>BBots2023</title>");
+    client.println(" <style>\n\
+                   .button {\n\
+                   border: none;\n\
+                   color: white;\n\
+                   padding: 30px 25px;\n\
+                   width: 100%;\n\
+                   text-align: center;\n\
+                   text-decoration: none;\n\
+                   display: inline-block;\n\
+                   font-size: 30px;\n\
+                   margin: 4px 2px;\n\
+                   cursor: pointer;\n\
+                 }\n\
+                   .button1 {background-color: #4CAF50;} \n\
+                   .button2 {background-color: #008CBA;} \n\
+                   .button3 {background-color: #da1626;} \n\
+                   </style>");
     client.println("<body>");
     client.println("<h1 align='center'>Test Amica Battlebots 2023</h1>");
     client.println("<div style='text-align:center;'>");
     client.println("<br />");
-    client.println("<button onClick=location.href='./?FW'>FW</button>");
-    client.println("<button onClick=location.href='./?BW'>BW</button>");
-    client.println("<button onClick=location.href='./?STOP'>STOP</button>");
+    client.println("<button class='button button1' onClick=location.href='./?FW'>ADELANTE</button>");
+    client.println("<br />");
+    client.println("<button class='button button2' onClick=location.href='./?BW'>ATRAS</button>");
+    client.println("<br />");
+    client.println("<br />");
+    client.println("<button class='button button3' onClick=location.href='./?STOP'>STOP</button>");
     client.println("<br />");
     client.println("</div>");
     client.println("</body>");
@@ -82,10 +103,6 @@ void wificlient()
     Serial.println("respuesta enviada");
     Serial.println();
   }
-  else
-  {
-    Serial.println("Ingrese desde un navegador web usando la siguiente IP: 192.168.4.1 ");
-    delay(200);
-  }
+
 }
 #endif
