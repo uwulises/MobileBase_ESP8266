@@ -1,52 +1,23 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 
-int pwmA = 13;
-int in1A = 12;
-int in2A = 14;
+#include <Arduino.h>
 
-int pwmB = 2;
-int in1B = 0;
-int in2B = 4;
+#define pwmA 13
+#define in1A 12
+#define in2A 14
 
-void attach_motors()
-{
-    pinMode(pwmA, OUTPUT);
-    pinMode(in1A, OUTPUT);
-    pinMode(in2A, OUTPUT);
-    pinMode(pwmB, OUTPUT);
-    pinMode(in1B, OUTPUT);
-    pinMode(in2B, OUTPUT);
-}
+#define pwmB 2
+#define in1B 0
+#define in2B 4
+#define MAX_SPEED 255
 
-void motor_backward()
-{
-    digitalWrite(in1A, HIGH);
-    digitalWrite(in2A, LOW);
-    analogWrite(pwmA, 255);
-    digitalWrite(in1B, HIGH);
-    digitalWrite(in2B, LOW);
-    analogWrite(pwmA, 255);
-}
+void attach_motors(void);
 
-void motor_forward()
-{
-    digitalWrite(in1A, LOW);
-    digitalWrite(in2A, HIGH);
-    analogWrite(pwmA, 255);
-    digitalWrite(in1B, LOW);
-    digitalWrite(in2B, HIGH);
-    analogWrite(pwmB, 255);
-}
+void motor_backward(void);
 
-void motor_stop()
-{
-    digitalWrite(in1A, LOW);
-    digitalWrite(in2A, LOW);
-    analogWrite(pwmA, 0);
-    digitalWrite(in1B, LOW);
-    digitalWrite(in2B, LOW);
-    analogWrite(pwmB, 0);
-}
+void motor_forward(void);
+
+void motor_stop(void);
 
 #endif

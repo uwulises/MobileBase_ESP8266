@@ -31,11 +31,13 @@ void run_web_server() {
   Serial.begin(115200);
   // Create a new SoftAP network
   WiFi.softAP(ssid, password);
-
+  Serial.println("");
+  Serial.println("");
   // Print the IP address of the SoftAP network
   Serial.print("Access Point IP address: ");
   Serial.println(WiFi.softAPIP());
-
+  Serial.println("");
+  Serial.println("");
   // Initialize SPIFFS
   if (!SPIFFS.begin()) {
     Serial.println("Failed to initialize SPIFFS");
