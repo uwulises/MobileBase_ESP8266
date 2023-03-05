@@ -5,32 +5,69 @@
     <meta charset="UTF-8">
     <title>Motor Velocity Control</title>
   </head>
+  <style>
+    .button {
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    
+    .button1 {background-color: #4CAF50;} /* Green */
+    .button2 {background-color: #008CBA;} /* Blue */
+    .button3 {background-color: #4CAF50;} /* Green */
+    .button4 {background-color: #008CBA;} /* Blue */
+    </style>
   <body>
-    <h1 align='center'>Motor Velocity Control</h1>
-    <div class="range-slider">
+    <h1>Motor Velocity Control</h1>
+    <!-- <div class="range-slider">
       <input class="input-range" orient="vertical" type="range" step="0.5" value="0" min="-1" max="1" id="FWBW">
       <span class="range-value"></span>     
       <input class="input-range"  type="range" step="0.5" value="0" min="-1" max="1" id="LR">
       <span class="range-value"></span>
-    </div> 
+    </div> -->
+    <div class="button">
+      <br>
+      <button class="button button1" id="button1" type="button" onmousedown="holdButton(event, 'button1')" onmouseup="pressButton('button1')">Adelante</button>
+      <br>
+      <br>
+      <div class="button">
+      <button class="button button2" id="button2" type="button" onmousedown="holdButton(event, 'button2')" onmouseup="pressButton('button2')">Izquierda</button>
+      <button class="button button3" id="button3" type="button" onmousedown="holdButton(event, 'button3')" onmouseup="pressButton('button3')">Derecha</button>
+      <br>
+      <br>
+      <button class="button button4" id="button4" type="button" onmousedown="holdButton(event, 'button4')" onmouseup="pressButton('button4')">Atras</button>
+      </div>
+
 
     <script>
-      // Retrieve the sliders
-      const FWBWSlider = document.getElementById("FWBW");
-      const LRSlider = document.getElementById("LR");
-      const B1 = document.getElementById("b1");
-      const B2 = document.getElementById("b2");
-      const B3 = document.getElementById("b3");
-      const B4 = document.getElementById("b4");
-
-      // Send the slider values to the ESP8266 when the user moves them
-      FWBWSlider.addEventListener("input", () => {
-        fetch(`http://192.168.4.1/FWBW?val=${FWBWSlider.value}`);
-      });
-
-      LRSlider.addEventListener("input", () => {
-        fetch(`http://192.168.4.1/LR?val=${LRSlider.value}`);
-      });
+      function holdButton(event, buttonId) {
+        // Prevent the default behavior of the mouse button.
+        event.preventDefault();
+        
+        // Set the background color of the button to red when held down.
+        document.getElementById(buttonId).style.backgroundColor = "red";
+        fetch(`http://192.168.4.1/B?val=${buttonId[6]}`)
+      }
+      function pressButton(buttonId) {
+        // Set the background color of the button back to its original color when released.
+        document.getElementById(buttonId).style.backgroundColor = "";
+      }
+    //   Retrieve the sliders
+    //   const FWBWSlider = document.getElementById("FWBW");
+    //   const LRSlider = document.getElementById("LR");
+    //   Send the slider values to the ESP8266 when the user moves them
+    //   FWBWSlider.addEventListener("input", () => {
+    //    fetch(`http://192.168.4.1/FWBW?val=${FWBWSlider.value}`);
+    //   });
+    //  LRSlider.addEventListener("input", () => {
+    //    fetch(`http://192.168.4.1/LR?val=${LRSlider.value}`);
+    //  });
     </script>
   </body>
 </html>
