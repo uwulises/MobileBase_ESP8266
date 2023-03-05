@@ -4,11 +4,12 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <FS.h>
-
+#include "motor.h"
 void handleFileRead(String path);
 void run_web_server(void);
 float handleMotorFWBWRequest(void);
 float handleMotorLRRequest(void);
+void handleButtonRequest(void);
 void handle_client(void);
 
 #endif

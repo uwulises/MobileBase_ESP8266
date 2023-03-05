@@ -36,9 +36,35 @@ float handleMotorLRRequest(void) {
   float LR_val = server.arg("val").toInt();
   int p_vy = LR_val;
   //Serial.print("LR val: ");
-  //Serial.println(LR_val); 
+  //Serial.println(LR_val);
   // TODO: control motor 2 based on the velocity value
   return p_vy;
+}
+
+void handleButtonRequest(void) {
+  int id = server.arg("val").toInt();
+
+  if (id == 1) {
+    //motor_FWBW(1);
+    Serial.print("BUTTON 1: ");
+    Serial.println(id);
+  }
+  if (id == 2) {
+    Serial.print("BUTTON 1: ");
+    Serial.println(id);
+  }
+  if (id == 3) {
+    Serial.print("BUTTON 1: ");
+    Serial.println(id);
+  }
+  if (id == 4) {
+    Serial.print("BUTTON 1: ");
+    Serial.println(id);
+  }
+  else {
+    Serial.println("ta llegando cualquier wea");
+  }
+
 }
 
 
@@ -62,6 +88,7 @@ void run_web_server(void) {
   }
   server.on("/FWBW", HTTP_GET, handleMotorFWBWRequest);
   server.on("/LR", HTTP_GET, handleMotorLRRequest);
+  server.on("/B", HTTP_GET, handleButtonRequest);
   // Set up web server
   server.onNotFound([]() {
     handleFileRead(server.uri());
@@ -77,4 +104,3 @@ void run_web_server(void) {
 void handle_client(void) {
   server.handleClient();
 }
-
