@@ -23,19 +23,24 @@ void handleFileRead(String path) {
 }
 
 
-void handleMotor1Request(void) {
-  int pwm_val1 = server.arg("val").toInt();
-  Serial.print("FWBW val: ");
-  Serial.println(pwm_val1);
+float handleMotorFWBWRequest(void) {
+  float FWBW_val = server.arg("val").toInt();
+  int p_vx = FWBW_val;
+  //Serial.print("FWBW val: ");
+  //Serial.println(FWBW_val);
   // TODO: control motor 1 based on the velocity value
+  return p_vx;
 }
 
-void handleMotor2Request(void) {
-  int pwm_val2 = server.arg("val").toInt();
-  Serial.print("LR val: ");
-  Serial.println(pwm_val2);
+float handleMotorLRRequest(void) {
+  float LR_val = server.arg("val").toInt();
+  int p_vy = LR_val;
+  //Serial.print("LR val: ");
+  //Serial.println(LR_val); 
   // TODO: control motor 2 based on the velocity value
+  return p_vy;
 }
+
 
 
 void run_web_server(void) {
@@ -55,8 +60,8 @@ void run_web_server(void) {
     Serial.println("Failed to initialize SPIFFS");
     return;
   }
-  server.on("/FWBW", HTTP_GET, handleMotor1Request);
-  server.on("/LR", HTTP_GET, handleMotor2Request);
+  server.on("/FWBW", HTTP_GET, handleMotorFWBWRequest);
+  server.on("/LR", HTTP_GET, handleMotorLRRequest);
   // Set up web server
   server.onNotFound([]() {
     handleFileRead(server.uri());

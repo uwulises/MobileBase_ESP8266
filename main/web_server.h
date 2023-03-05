@@ -7,8 +7,8 @@
 
 void handleFileRead(String path);
 void run_web_server(void);
-void handleMotor1Request(void);
-void handleMotor2Request(void);
+float handleMotorFWBWRequest(void);
+float handleMotorLRRequest(void);
 void handle_client(void);
 
 #endif
