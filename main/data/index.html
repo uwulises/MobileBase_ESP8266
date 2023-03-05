@@ -1,73 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
     <meta charset="UTF-8">
     <title>Motor Velocity Control</title>
-    <style>
-      .slider {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 50%;
-        height: 20px;
-        background: #ddd;
-        outline: none;
-        opacity: 0.7;
-        -webkit-transition: .2s;
-        transition: opacity .2s;
-      }
-      
-      .slider:hover {
-        opacity: 1;
-      }
-      
-      .slider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 20px;
-        height: 20px;
-        background: #4CAF50;
-        cursor: pointer;
-      }
-      
-      .slider::-moz-range-thumb {
-        width: 20px;
-        height: 20px;
-        background: #4CAF50;
-        cursor: pointer;
-      }
-      
-      .slider-label {
-        display: block;
-        margin-bottom: 10px;
-      }
-      
-      .slider-container {
-        margin-bottom: 20px;
-      }
-    </style>
   </head>
   <body>
-    <h1>Motor Velocity Control</h1>
-    <div class="slider-container">
-      <label for="motor1-slider" class="slider-label">Motor 1 Velocity:</label>
-      <input type="range" min="-255" max="255" value="0" class="slider" id="motor1-slider">
-    </div>
-    <div class="slider-container">
-      <label for="motor2-slider" class="slider-label">Motor 2 Velocity:</label>
-      <input type="range" min="-255" max="255" value="0" class="slider" id="motor2-slider">
-    </div>
+    <h1 align='center'>Motor Velocity Control</h1>
+    <div class="range-slider">
+      <input class="input-range" orient="vertical" type="range" step="0.5" value="0" min="-1" max="1" id="FWBW">
+      <span class="range-value"></span>     
+      <input class="input-range"  type="range" step="0.5" value="0" min="-1" max="1" id="LR">
+      <span class="range-value"></span>
+    </div> 
+
     <script>
       // Retrieve the sliders
-      const motor1Slider = document.getElementById("motor1-slider");
-      const motor2Slider = document.getElementById("motor2-slider");
+      const FWBWSlider = document.getElementById("FWBW");
+      const LRSlider = document.getElementById("LR");
 
       // Send the slider values to the ESP8266 when the user moves them
-      motor1Slider.addEventListener("input", () => {
-        fetch(`http://192.168.4.1/motor1?velocity=${motor1Slider.value}`);
+      FWBWSlider.addEventListener("input", () => {
+        fetch(`http://192.168.4.1/FWBW?val=${FWBWSlider.value}`);
       });
 
-      motor2Slider.addEventListener("input", () => {
-        fetch(`http://192.168.4.1/motor2?velocity=${motor2Slider.value}`);
+      LRSlider.addEventListener("input", () => {
+        fetch(`http://192.168.4.1/LR?val=${LRSlider.value}`);
       });
     </script>
   </body>
