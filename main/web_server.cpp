@@ -45,24 +45,26 @@ void handleButtonRequest(void) {
   int id = server.arg("val").toInt();
 
   if (id == 1) {
-    //motor_FWBW(1);
+    motor_FWBW(1);
     Serial.print("BUTTON 1: ");
     Serial.println(id);
   }
   if (id == 2) {
-    Serial.print("BUTTON 1: ");
+    motor_LR(1);
+    Serial.print("BUTTON 2: ");
     Serial.println(id);
   }
   if (id == 3) {
-    Serial.print("BUTTON 1: ");
+    motor_LR(0);
+    Serial.print("BUTTON 3: ");
     Serial.println(id);
   }
   if (id == 4) {
-    Serial.print("BUTTON 1: ");
+    motor_FWBW(0);
+    Serial.print("BUTTON 4: ");
     Serial.println(id);
   }
   else {
-    Serial.println("ta llegando cualquier wea");
   }
 
 }
