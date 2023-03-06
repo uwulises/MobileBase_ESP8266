@@ -42,6 +42,7 @@ float handleMotorLRRequest(void) {
 }
 
 void handleButtonRequest(void) {
+  Serial.println("A");
   int id = server.arg("val").toInt();
 
   if (id == 1) {
@@ -91,6 +92,7 @@ void run_web_server(void) {
   server.on("/FWBW", HTTP_GET, handleMotorFWBWRequest);
   server.on("/LR", HTTP_GET, handleMotorLRRequest);
   server.on("/B", HTTP_GET, handleButtonRequest);
+  server.on("%3F/B", HTTP_GET, handleButtonRequest);
   // Set up web server
   server.onNotFound([]() {
     handleFileRead(server.uri());
