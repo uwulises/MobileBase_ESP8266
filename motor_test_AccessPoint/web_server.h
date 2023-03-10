@@ -46,7 +46,18 @@ void wificlient()
       motor_forward();
       Serial.println("forward");
     }
+    if (linea1.indexOf("L") > 0)
+    {
 
+      motor_L();
+      Serial.println("left");
+    }
+    if (linea1.indexOf("R") > 0)
+    {
+
+      motor_R();
+      Serial.println("right");
+    }
     if (linea1.indexOf("STOP") > 0)
     {
 
@@ -89,6 +100,9 @@ void wificlient()
     client.println("<div style='text-align:center;'>");
     client.println("<br />");
     client.println("<button class='button button1' onClick=location.href='./?FW'>ADELANTE</button>");
+    client.println("<br />");
+    client.println("<button class='button button2' onClick=location.href='./?L'>IZQUIERDA</button>");
+    client.println("<button class='button button2' onClick=location.href='./?R'>DERECHA</button>");
     client.println("<br />");
     client.println("<button class='button button2' onClick=location.href='./?BW'>ATRAS</button>");
     client.println("<br />");

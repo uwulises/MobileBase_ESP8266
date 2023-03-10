@@ -1,52 +1,72 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 
-int pwmA = 13;
-int in1A = 12;
-int in2A = 14;
+#define PWM_A 15
+#define IN1_A 14
+#define IN2_A 12
 
-int pwmB = 2;
-int in1B = 0;
-int in2B = 4;
+#define PWM_A 13
+#define IN1_B 4
+#define IN2_B 5
 
 void attach_motors()
 {
-    pinMode(pwmA, OUTPUT);
-    pinMode(in1A, OUTPUT);
-    pinMode(in2A, OUTPUT);
-    pinMode(pwmB, OUTPUT);
-    pinMode(in1B, OUTPUT);
-    pinMode(in2B, OUTPUT);
+    pinMode(PWM_A, OUTPUT);
+    pinMode(IN1_A, OUTPUT);
+    pinMode(IN2_A, OUTPUT);
+    pinMode(PWM_A, OUTPUT);
+    pinMode(IN1_B, OUTPUT);
+    pinMode(IN2_B, OUTPUT);
 }
 
 void motor_backward()
 {
-    digitalWrite(in1A, HIGH);
-    digitalWrite(in2A, LOW);
-    analogWrite(pwmA, 255);
-    digitalWrite(in1B, HIGH);
-    digitalWrite(in2B, LOW);
-    analogWrite(pwmA, 255);
+    digitalWrite(IN1_A, HIGH);
+    digitalWrite(IN2_A, LOW);
+    analogWrite(PWM_A, 255);
+    digitalWrite(IN1_B, HIGH);
+    digitalWrite(IN2_B, LOW);
+    analogWrite(PWM_A, 255);
 }
 
 void motor_forward()
 {
-    digitalWrite(in1A, LOW);
-    digitalWrite(in2A, HIGH);
-    analogWrite(pwmA, 255);
-    digitalWrite(in1B, LOW);
-    digitalWrite(in2B, HIGH);
-    analogWrite(pwmB, 255);
+    digitalWrite(IN1_A, LOW);
+    digitalWrite(IN2_A, HIGH);
+    analogWrite(PWM_A, 255);
+    digitalWrite(IN1_B, LOW);
+    digitalWrite(IN2_B, HIGH);
+    analogWrite(PWM_A, 255);
+}
+
+void motor_L()
+{
+    digitalWrite(IN1_A, !LOW);
+    digitalWrite(IN2_A, !HIGH);
+    analogWrite(PWM_A, 255);
+    digitalWrite(IN1_B, LOW);
+    digitalWrite(IN2_B, HIGH);
+    analogWrite(PWM_A, 255);
+}
+
+void motor_R()
+{
+    digitalWrite(IN1_A, LOW);
+    digitalWrite(IN2_A, HIGH);
+    analogWrite(PWM_A, 255);
+    digitalWrite(IN1_B, !LOW);
+    digitalWrite(IN2_B, !HIGH);
+    analogWrite(PWM_A, 255);
 }
 
 void motor_stop()
 {
-    digitalWrite(in1A, LOW);
-    digitalWrite(in2A, LOW);
-    analogWrite(pwmA, 0);
-    digitalWrite(in1B, LOW);
-    digitalWrite(in2B, LOW);
-    analogWrite(pwmB, 0);
+    digitalWrite(IN1_A, LOW);
+    digitalWrite(IN2_A, LOW);
+    analogWrite(PWM_A, 0);
+    digitalWrite(IN1_B, LOW);
+    digitalWrite(IN2_B, LOW);
+    analogWrite(PWM_A, 0);
 }
 
 #endif
