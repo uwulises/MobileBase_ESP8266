@@ -4,13 +4,14 @@
 #include <Arduino.h>
 #include "web_server.h"
 #include <math.h>
-#define pwmA 13
-#define in1A 12
-#define in2A 14
 
-#define pwmB 2
-#define in1B 0
-#define in2B 4
+#define PWM_A 15
+#define IN1_A 14
+#define IN2_A 12
+
+#define PWM_B 13
+#define IN1_B 4
+#define IN2_B 5
 #define MAX_SPEED 255
 #define TRACK_WIDTH 1
 #define WHEEL_RADIUS 1

@@ -2,6 +2,7 @@
 
 void setup() {
   run_web_server();
+  motors_setup();
 }
 
 void loop() {

@@ -25,61 +25,26 @@
     </style>
   <body>
     <h1>Motor Velocity Control</h1>
-    <!-- <div class="range-slider">
-      <input class="input-range" orient="vertical" type="range" step="0.5" value="0" min="-1" max="1" id="FWBW">
-      <span class="range-value"></span>     
-      <input class="input-range"  type="range" step="0.5" value="0" min="-1" max="1" id="LR">
-      <span class="range-value"></span>
-    </div> -->
 
     <div class="button">
       <br>
-      <button class='button button1' onClick=location.href='./?/B?val=1'>ADELANTE</button>
+      <button type="button" class='button button1' id ='button1' onClick="sendRequest('http://192.168.4.1/B?val=1')" >ADELANTE</button>
       <br>
       <br>       
-      <button class='button button2' onClick=location.href='./?/B?val=2'>IZQUIERDA</button>
-      <button class='button button2' onClick=location.href='./?/B?val=3'>DERECHA</button>
+      <button type="button" class='button button2' id ='button2' onClick="sendRequest('http://192.168.4.1/B?val=2')">IZQUIERDA</button>
+      <button type="button" class='button button2' id ='button3' onClick="sendRequest('http://192.168.4.1/B?val=3')">DERECHA</button>
       <br>
       <br>
-      <button class='button button2' onClick=location.href='./?/B?val=4'>ATRAS</button>
+      <button type="button" class='button button2' id ='button4' onClick="sendRequest('http://192.168.4.1/B?val=4')">ATRAS</button>
     </div>
 
-    <!-- <div class="button">
-      <br>
-      <button class="button button1" id="button1" type="button" onmousedown="holdButton(event, 'button1')" onmouseup="pressButton('button1')">Adelante</button>
-      <br>
-      <br>
-      <button class="button button2" id="button2" type="button" onmousedown="holdButton(event, 'button2')" onmouseup="pressButton('button2')">Izquierda</button>
-      <button class="button button3" id="button3" type="button" onmousedown="holdButton(event, 'button3')" onmouseup="pressButton('button3')">Derecha</button>
-      <br>
-      <br>
-      <button class="button button4" id="button4" type="button" onmousedown="holdButton(event, 'button4')" onmouseup="pressButton('button4')">Atras</button>
-      </div> -->
-
-
     <script>
-      // function holdButton(event, buttonId) {
-      //   // Prevent the default behavior of the mouse button.
-      //   event.preventDefault();
-        
-      //   // Set the background color of the button to red when held down.
-      //   document.getElementById(buttonId).style.backgroundColor = "red";
-      //   fetch(`http://192.168.4.1/B?val=${buttonId[6]}`)
-      // }
-      // function pressButton(buttonId) {
-      //   // Set the background color of the button back to its original color when released.
-      //   document.getElementById(buttonId).style.backgroundColor = "";
-      // }
-    //   Retrieve the sliders
-    //   const FWBWSlider = document.getElementById("FWBW");
-    //   const LRSlider = document.getElementById("LR");
-    //   Send the slider values to the ESP8266 when the user moves them
-    //   FWBWSlider.addEventListener("input", () => {
-    //    fetch(`http://192.168.4.1/FWBW?val=${FWBWSlider.value}`);
-    //   });
-    //  LRSlider.addEventListener("input", () => {
-    //    fetch(`http://192.168.4.1/LR?val=${LRSlider.value}`);
-    //  });
+      function sendRequest(url) {
+			  var xhr = new XMLHttpRequest();
+			  xhr.open("GET", url, true);
+			  xhr.send();
+        xhr.timeout = 100;
+		  }
     </script>
   </body>
 </html>

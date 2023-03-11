@@ -2,12 +2,12 @@
 
 void motors_setup(void)
 {
-  pinMode(pwmA, OUTPUT);
-  pinMode(in1A, OUTPUT);
-  pinMode(in2A, OUTPUT);
-  pinMode(pwmB, OUTPUT);
-  pinMode(in1B, OUTPUT);
-  pinMode(in2B, OUTPUT);
+  pinMode(PWM_A, OUTPUT);
+  pinMode(IN1_A, OUTPUT);
+  pinMode(IN2_A, OUTPUT);
+  pinMode(PWM_B, OUTPUT);
+  pinMode(IN1_B, OUTPUT);
+  pinMode(IN2_B, OUTPUT);
 }
 
 void motor_cmd_vel(void) {
@@ -20,49 +20,49 @@ void motor_cmd_vel(void) {
 void motor_FWBW(bool dir1)
 {
   if (dir1) {
-    digitalWrite(in1A, LOW);
-    digitalWrite(in2A, HIGH);
-    analogWrite(pwmA, MAX_SPEED);
-    digitalWrite(in1B, LOW);
-    digitalWrite(in2B, HIGH);
-    analogWrite(pwmB, MAX_SPEED);
+    digitalWrite(IN1_A, LOW);
+    digitalWrite(IN2_A, HIGH);
+    analogWrite(PWM_A, MAX_SPEED);
+    digitalWrite(IN1_B, LOW);
+    digitalWrite(IN2_B, HIGH);
+    analogWrite(PWM_B, MAX_SPEED);
   }
   else {
-    digitalWrite(in1A, !LOW);
-    digitalWrite(in2A, !HIGH);
-    analogWrite(pwmA, MAX_SPEED);
-    digitalWrite(in1B, !LOW);
-    digitalWrite(in2B, !HIGH);
-    analogWrite(pwmB, MAX_SPEED);
+    digitalWrite(IN1_A, !LOW);
+    digitalWrite(IN2_A, !HIGH);
+    analogWrite(PWM_A, MAX_SPEED);
+    digitalWrite(IN1_B, !LOW);
+    digitalWrite(IN2_B, !HIGH);
+    analogWrite(PWM_B, MAX_SPEED);
   }
 
 }
 
 void motor_LR(bool dir2) {
   if (dir2) {
-    digitalWrite(in1A, LOW);
-    digitalWrite(in2A, HIGH);
-    analogWrite(pwmA, MAX_SPEED);
-    digitalWrite(in1B, !LOW);
-    digitalWrite(in2B, !HIGH);
-    analogWrite(pwmB, MAX_SPEED);
+    digitalWrite(IN1_A, LOW);
+    digitalWrite(IN2_A, HIGH);
+    analogWrite(PWM_A, MAX_SPEED);
+    digitalWrite(IN1_B, !LOW);
+    digitalWrite(IN2_B, !HIGH);
+    analogWrite(PWM_B, MAX_SPEED);
   }
   else {
-    digitalWrite(in1A, !LOW);
-    digitalWrite(in2A, !HIGH);
-    analogWrite(pwmA, MAX_SPEED);
-    digitalWrite(in1B, HIGH);
-    digitalWrite(in2B, LOW);
-    analogWrite(pwmB, MAX_SPEED);
+    digitalWrite(IN1_A, !LOW);
+    digitalWrite(IN2_A, !HIGH);
+    analogWrite(PWM_A, MAX_SPEED);
+    digitalWrite(IN1_B, LOW);
+    digitalWrite(IN2_B, HIGH);
+    analogWrite(PWM_B, MAX_SPEED);
   }
 }
 
 void motor_stop(void)
 {
-  digitalWrite(in1A, LOW);
-  digitalWrite(in2A, LOW);
-  analogWrite(pwmA, 0);
-  digitalWrite(in1B, LOW);
-  digitalWrite(in2B, LOW);
-  analogWrite(pwmB, 0);
+  digitalWrite(IN1_A, LOW);
+  digitalWrite(IN2_A, LOW);
+  analogWrite(PWM_A, 0);
+  digitalWrite(IN1_B, LOW);
+  digitalWrite(IN2_B, LOW);
+  analogWrite(PWM_B, 0);
 }

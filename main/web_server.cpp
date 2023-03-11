@@ -42,28 +42,23 @@ float handleMotorLRRequest(void) {
 }
 
 void handleButtonRequest(void) {
-  Serial.println("A");
+ 
   int id = server.arg("val").toInt();
+  Serial.println("recibido");
+  Serial.print(id);
 
   if (id == 1) {
     motor_FWBW(1);
-    Serial.print("BUTTON 1: ");
-    Serial.println(id);
   }
   if (id == 2) {
     motor_LR(1);
-    Serial.print("BUTTON 2: ");
-    Serial.println(id);
   }
   if (id == 3) {
     motor_LR(0);
-    Serial.print("BUTTON 3: ");
-    Serial.println(id);
   }
   if (id == 4) {
     motor_FWBW(0);
-    Serial.print("BUTTON 4: ");
-    Serial.println(id);
+    
   }
   else {
   }
@@ -92,7 +87,6 @@ void run_web_server(void) {
   server.on("/FWBW", HTTP_GET, handleMotorFWBWRequest);
   server.on("/LR", HTTP_GET, handleMotorLRRequest);
   server.on("/B", HTTP_GET, handleButtonRequest);
-  server.on("%3F/B", HTTP_GET, handleButtonRequest);
   // Set up web server
   server.onNotFound([]() {
     handleFileRead(server.uri());
