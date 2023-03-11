@@ -9,12 +9,12 @@
     .button {
       border: "black";
       color: rgb(0, 0, 0);
-      padding: 15px 32px;
+      padding: 20px 40px;
       text-align: center;
       text-decoration: none;
       display: inline-block;
       font-size: 20px;
-      margin: 4px 2px;
+      margin: 4px 10px;
       cursor: pointer;
     }
     
@@ -22,6 +22,7 @@
     .button2 {background-color: #00fff2;}
     .button3 {background-color: #00fff2;} 
     .button4 {background-color: #d47b15;}
+    .button5 {background-color: #ff0000;}
     </style>
   <body>
     <h1>Motor Velocity Control</h1>
@@ -31,8 +32,9 @@
       <button type="button" class='button button1' id ='button1' onClick="sendRequest('http://192.168.4.1/B?val=1')" >ADELANTE</button>
       <br>
       <br>       
-      <button type="button" class='button button2' id ='button2' onClick="sendRequest('http://192.168.4.1/B?val=2')">IZQUIERDA</button>
-      <button type="button" class='button button2' id ='button3' onClick="sendRequest('http://192.168.4.1/B?val=3')">DERECHA</button>
+      <button type="button" class='button button2' id ='button2' onClick="sendRequest('http://192.168.4.1/B?val=2')">L</button>
+      <button type="button" class='button button5' id ='button5' onClick="sendRequest('http://192.168.4.1/B?val=5')">STOP</button>
+      <button type="button" class='button button2' id ='button3' onClick="sendRequest('http://192.168.4.1/B?val=3')">R</button>
       <br>
       <br>
       <button type="button" class='button button2' id ='button4' onClick="sendRequest('http://192.168.4.1/B?val=4')">ATRAS</button>

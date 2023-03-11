@@ -42,7 +42,7 @@ float handleMotorLRRequest(void) {
 }
 
 void handleButtonRequest(void) {
- 
+
   int id = server.arg("val").toInt();
   Serial.println("recibido");
   Serial.print(id);
@@ -58,7 +58,9 @@ void handleButtonRequest(void) {
   }
   if (id == 4) {
     motor_FWBW(0);
-    
+  }
+  if (id == 5) {
+    motor_stop();
   }
   else {
   }

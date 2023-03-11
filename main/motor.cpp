@@ -40,19 +40,19 @@ void motor_FWBW(bool dir1)
 
 void motor_LR(bool dir2) {
   if (dir2) {
-    digitalWrite(IN1_A, LOW);
-    digitalWrite(IN2_A, HIGH);
-    analogWrite(PWM_A, MAX_SPEED);
-    digitalWrite(IN1_B, !LOW);
-    digitalWrite(IN2_B, !HIGH);
-    analogWrite(PWM_B, MAX_SPEED);
-  }
-  else {
     digitalWrite(IN1_A, !LOW);
     digitalWrite(IN2_A, !HIGH);
     analogWrite(PWM_A, MAX_SPEED);
     digitalWrite(IN1_B, LOW);
     digitalWrite(IN2_B, HIGH);
+    analogWrite(PWM_B, MAX_SPEED);
+  }
+  else {
+    digitalWrite(IN1_A, LOW);
+    digitalWrite(IN2_A, HIGH);
+    analogWrite(PWM_A, MAX_SPEED);
+    digitalWrite(IN1_B, !LOW);
+    digitalWrite(IN2_B, !HIGH);
     analogWrite(PWM_B, MAX_SPEED);
   }
 }
