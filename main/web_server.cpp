@@ -22,7 +22,6 @@ void handleFileRead(String path) {
   }
 }
 
-
 float handleMotorFWBWRequest(void) {
   float FWBW_val = server.arg("val").toInt();
   int p_vx = FWBW_val;
@@ -44,8 +43,6 @@ float handleMotorLRRequest(void) {
 void handleButtonRequest(void) {
 
   int id = server.arg("val").toInt();
-  Serial.println("recibido");
-  Serial.print(id);
 
   if (id == 1) {
     motor_FWBW(1);
@@ -62,12 +59,20 @@ void handleButtonRequest(void) {
   if (id == 5) {
     motor_stop();
   }
+
+  //Puedes modificar las siguientes acciones id 6 y 7
+  if (id == 6) {
+    Serial.println("ATTACK");
+    rotational_hit();
+  }
+  if (id == 7) {
+    Serial.println("ATTACK 2");
+    one_hit();
+  }  
   else {
   }
 
 }
-
-
 
 void run_web_server(void) {
   // Initialize serial communication
@@ -97,9 +102,6 @@ void run_web_server(void) {
   server.begin();
   Serial.println("Web server started");
 }
-
-
-
 
 void handle_client(void) {
   server.handleClient();
