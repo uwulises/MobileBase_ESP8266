@@ -46,28 +46,35 @@ void handleButtonRequest(void) {
 
   if (id == 1) {
     motor_FWBW(1);
+    server.send(200, "text/plain", "OK");
   }
   if (id == 2) {
     motor_LR(1);
+    server.send(200, "text/plain", "OK");
   }
   if (id == 3) {
     motor_LR(0);
+    server.send(200, "text/plain", "OK");
   }
   if (id == 4) {
     motor_FWBW(0);
+    server.send(200, "text/plain", "OK");
   }
   if (id == 5) {
     motor_stop();
+    server.send(200, "text/plain", "OK");
   }
 
   //Puedes modificar las siguientes acciones id 6 y 7
   if (id == 6) {
     Serial.println("ATTACK");
     rotational_hit();
+    server.send(200, "text/plain", "OK");
   }
   if (id == 7) {
     Serial.println("ATTACK 2");
     one_hit();
+    server.send(200, "text/plain", "OK");
   }  
   else {
   }
