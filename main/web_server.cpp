@@ -72,13 +72,13 @@ void handleButtonRequest(void) {
 
   //Puedes modificar las siguientes acciones id 6 y 7
   if (id == 6) {
-    Serial.println("ATTACK");
-    rotational_hit();
+    Serial.println("ATTACK 1");    
+    one_hit();
     server.send(200, "text/plain", "OK");
   }
   if (id == 7) {
     Serial.println("ATTACK 2");
-    one_hit();
+    rotational_hit();
     server.send(200, "text/plain", "OK");
   }  
   else {
