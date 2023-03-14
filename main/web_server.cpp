@@ -89,6 +89,8 @@ void handleButtonRequest(void) {
 void handleJoyRequest(void){
   int x_dir = server.arg("x_axis").toInt();
   int y_dir = server.arg("y_axis").toInt();
+  Serial.print(x_dir);
+  Serial.println(y_dir);
   if (x_dir){
     motor_LR(1);
     server.send(200, "text/plain", "OK");
