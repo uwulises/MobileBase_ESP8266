@@ -17,4 +17,5 @@ while True:
         params = {"x_axis": x_axis, "y_axis": y_axis}
         response = requests.get(url, params = params, timeout = 5)
     except KeyboardInterrupt:
+        print("DESCONECTADO")
         break

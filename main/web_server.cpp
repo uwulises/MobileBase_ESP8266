@@ -92,11 +92,11 @@ void handleJoyRequest(void){
   Serial.print(x_dir);
   Serial.println(y_dir);
   if (x_dir == 1){
-    motor_LR(1);
+    motor_LR(0);
     server.send(200, "text/plain", "OK");
     }
   if (x_dir == -1){
-    motor_LR(0);
+    motor_LR(1);
     server.send(200, "text/plain", "OK");
   }
   if (y_dir == 1){
