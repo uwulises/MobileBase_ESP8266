@@ -86,6 +86,29 @@ void handleButtonRequest(void) {
 
 }
 
+void handleJoyRequest(void){
+  int x_dir = server.arg("x_axis").toInt();
+  int y_dir = server.arg("y_axis").toInt();
+  if (x_dir){
+    motor_LR(1);
+    server.send(200, "text/plain", "OK");
+    }
+  if (!x_dir){
+    motor_LR(0);
+    server.send(200, "text/plain", "OK");
+  }
+  if (y_dir){
+    motor_FWBW(1);
+    server.send(200, "text/plain", "OK");
+    }
+  if (!y_dir){
+    motor_FWBW(0);
+    server.send(200, "text/plain", "OK");
+  }
+
+  else {}
+  
+}
 void run_web_server(void) {
   // Initialize serial communication
   Serial.begin(115200);
@@ -106,6 +129,7 @@ void run_web_server(void) {
   server.on("/FWBW", HTTP_GET, handleMotorFWBWRequest);
   server.on("/LR", HTTP_GET, handleMotorLRRequest);
   server.on("/B", HTTP_GET, handleButtonRequest);
+  server.on("/joystick", HTTP_GET,handleJoyRequest);
   // Set up web server
   server.onNotFound([]() {
     handleFileRead(server.uri());

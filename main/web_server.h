@@ -42,6 +42,11 @@ float handleMotorLRRequest(void);
 void handleButtonRequest(void);
 
 /**
+ * @brief Funcion para enviar request desde un joystick
+ * 
+ */
+void handleJoyRequest(void);
+/**
  * @brief Funcion para trabajar con las solicitudes del cliente
  * 
  */
