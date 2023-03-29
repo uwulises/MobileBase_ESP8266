@@ -7,6 +7,7 @@
 //Librerias propias
 #include "motor.h"
 #include "attack.h"
+#include "status_batt.h"
 
 /**
  * @brief Funcion que lee un archivo de tipo html para publicarse en web server via FS
@@ -51,5 +52,7 @@ void handleJoyRequest(void);
  * 
  */
 void handle_client(void);
+
+void handlebatteryRequest(void);
 
 #endif

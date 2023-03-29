@@ -114,6 +114,13 @@ void handleJoyRequest(void){
   }
   
 }
+
+void handlebatteryRequest(void)
+{
+  read_voltage();
+  server.send(200, "text/plain", "OK");
+}
+
 void run_web_server(void) {
   // Initialize serial communication
   Serial.begin(115200);
@@ -135,6 +142,7 @@ void run_web_server(void) {
   server.on("/LR", HTTP_GET, handleMotorLRRequest);
   server.on("/B", HTTP_GET, handleButtonRequest);
   server.on("/joystick", HTTP_GET,handleJoyRequest);
+  server.on("/battery", HTTP_GET,handlebatteryRequest)
   // Set up web server
   server.onNotFound([]() {
     handleFileRead(server.uri());
