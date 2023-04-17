@@ -41,7 +41,14 @@
       <br>
       <button type="button" class='button button6' onClick="sendRequest('http://192.168.4.1/B?val=6')">ATTACK1</button>
       <button type="button" class='button button6' onClick="sendRequest('http://192.168.4.1/B?val=7')">ATTACK2</button>
+      
     </div>
+    <div id="battery-percentage">
+      Battery Percentage: <span id="percentage-value"></span>%
+      <button type="button" class='button button4' onClick="sendRequest('http://192.168.4.1/battery')">Battery level</button>
+    </div>
+    
+    
 
     <script>
       function sendRequest(url) {
@@ -50,6 +57,15 @@
 			  xhr.send();
         xhr.timeout = 100;
 		  }
+      const url = 'http://192.168.4.1/battery';
+
+      fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        const batteryPercentage = parseInt(data);
+        document.getElementById('percentage-value').textContent = batteryPercentage;
+      })
+      .catch(error => console.error(error));
     </script>
   </body>
 </html>
