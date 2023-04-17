@@ -6,3 +6,5 @@
 - <https://github.com/esp8266/Arduino/tree/master/libraries/ESP8266WebServer>
 
 These modules contains basic test modules for communicate a client with ESP board using onboard wifi
+
+### Board supported: Node MCU Amica V2
