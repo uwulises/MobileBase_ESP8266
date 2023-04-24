@@ -91,11 +91,13 @@ void handleJoyRequest(void){
   int y_dir = server.arg("y_axis").toInt();
   Serial.print(x_dir);
   Serial.println(y_dir);
-  if (x_dir == 1){
+  motor_cmd_vel()
+
+  if (0.1 <x_dir <= 1){
     motor_LR(0);
     server.send(200, "text/plain", "OK");
     }
-  if (x_dir == -1){
+  if (-1<= x_dir <= -0.1){
     motor_LR(1);
     server.send(200, "text/plain", "OK");
   }

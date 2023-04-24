@@ -12,7 +12,16 @@
 #define PWM_B 13
 #define IN1_B 4
 #define IN2_B 5
+
+#define SPEED_A 255
+#define SPEED_B 255
+
+#define MIN_SPEED 0
 #define MAX_SPEED 255
+
+#define MIN_JOY -1
+#define MAX_JOY 1
+
 #define TRACK_WIDTH 1
 #define WHEEL_RADIUS 1
 
