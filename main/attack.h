@@ -8,9 +8,9 @@
 
 void attack_setup(void);
 
-void one_hit(void);
+void attack_1(void);
 
-void rotational_hit(void);
+void attack_2(void);
 
 
 #endif

@@ -6,6 +6,7 @@ float battery_level = 0.0;
 int read_voltage(void)
 {
     lecture = analogRead(A0);
+    delay(100);
     if (lecture < 300){
         battery_level=-1;
         //manda -1 como valor de no lectura de la bateria

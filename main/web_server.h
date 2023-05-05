@@ -53,6 +53,10 @@ void handleJoyRequest(void);
  */
 void handle_client(void);
 
+/**
+ * @brief Funcion para retornar el valor de porcentaje de bateria
+ * 
+ */
 void handlebatteryRequest(void);
 
 #endif

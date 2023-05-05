@@ -117,7 +117,7 @@ void handleJoyRequest(void){
   
 }
 
-void handlebatteryRequest(void)
+void handleBatteryRequest(void)
 {
   String porcentaje = String(read_voltage());
   server.send(200, "text/plain", porcentaje);
@@ -126,15 +126,18 @@ void handlebatteryRequest(void)
 void run_web_server(void) {
   // Initialize serial communication
   Serial.begin(115200);
+  
   // Create a new SoftAP network
   WiFi.softAP(ssid, password);
   Serial.println("");
   Serial.println("");
+
   // Print the IP address of the SoftAP network
   Serial.print("Access Point IP address: ");
   Serial.println(WiFi.softAPIP());
   Serial.println("");
   Serial.println("");
+
   // Initialize SPIFFS
   if (!SPIFFS.begin()) {
     Serial.println("Failed to initialize SPIFFS");
@@ -143,8 +146,8 @@ void run_web_server(void) {
   server.on("/FWBW", HTTP_GET, handleMotorFWBWRequest);
   server.on("/LR", HTTP_GET, handleMotorLRRequest);
   server.on("/B", HTTP_GET, handleButtonRequest);
-  server.on("/joystick", HTTP_GET,handleJoyRequest);
-  server.on("/battery", HTTP_GET,handlebatteryRequest);
+  server.on("/joystick", HTTP_GET, handleJoyRequest);
+  server.on("/battery", HTTP_GET, handleBatteryRequest);
   // Set up web server
   server.onNotFound([]() {
     handleFileRead(server.uri());

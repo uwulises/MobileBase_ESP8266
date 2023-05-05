@@ -7,10 +7,10 @@ void attack_setup(void) {
   digitalWrite(attack_1_pin, LOW);
   digitalWrite(attack_2_pin, LOW);
 }
-void one_hit(void) {
+void attack_1(void) {
 
 }
 
-void rotational_hit() {
+void attack_2(void) {
 
 }
