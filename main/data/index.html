@@ -62,7 +62,7 @@
       fetch(url)
       .then(response => response.text())
       .then(data => {
-        const batteryPercentage = parseInt(data);
+        var batteryPercentage = parseInt(data);
         document.getElementById('percentage-value').textContent = batteryPercentage;
       })
       .catch(error => console.error(error));
