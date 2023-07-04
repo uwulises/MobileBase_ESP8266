@@ -73,12 +73,12 @@ void handleButtonRequest(void) {
   //Puedes modificar las siguientes acciones id 6 y 7
   if (id == 6) {
     Serial.println("ATTACK 1");    
-    one_hit();
+    attack_1();
     server.send(200, "text/plain", "OK");
   }
   if (id == 7) {
     Serial.println("ATTACK 2");
-    rotational_hit();
+    attack_2();
     server.send(200, "text/plain", "OK");
   }  
   else {
@@ -91,7 +91,6 @@ void handleJoyRequest(void){
   int y_dir = server.arg("y_axis").toInt();
   Serial.print(x_dir);
   Serial.println(y_dir);
-  motor_cmd_vel()
 
   if (0.1 <x_dir <= 1){
     motor_LR(0);
