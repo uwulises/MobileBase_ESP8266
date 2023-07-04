@@ -13,13 +13,10 @@ void motors_setup(void)
 void motor_cmd_vel(void) {
   float px = handleMotorFWBWRequest();
   float py = handleMotorLRRequest();
-  float vec_vel = sqrt(pow(px, 2) + pow(py, 2));
-  float ang_vel = atan2 (py, px) * 180 / PI;
 }
 
 void motor_FWBW(bool dir1)
 { 
-  motor_cmd_vel();
     
   if (dir1) {
     digitalWrite(IN1_A, LOW);
